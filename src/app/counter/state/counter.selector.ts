@@ -1,4 +1,3 @@
-import { state } from "@angular/animations";
 import { createFeatureSelector, createSelector } from "@ngrx/store";
 import { counterState } from "./counter.state";
 
