@@ -10,6 +10,11 @@ import { StoreModule } from '@ngrx/store';
 import { counterReducer } from './counter/state/counter.reducers';
 import { CounterInputComponent } from './counter/counter-input/counter-input.component';
 import { FormsModule } from '@angular/forms';
+import { HomeComponent } from './home/home.component';
+import { HeaderComponent } from './shared/components/header/header.component';
+import { PostsListComponent } from './posts/posts-list/posts-list.component';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [
@@ -17,13 +22,20 @@ import { FormsModule } from '@angular/forms';
     CounterComponent,
     CounterButtonsComponent,
     CounterOutputComponent,
-    CounterInputComponent
+    CounterInputComponent,
+    HomeComponent,
+    HeaderComponent,
+    PostsListComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule, 
     FormsModule,
-    StoreModule.forRoot({counter: counterReducer})
+    StoreModule.forRoot({counter: counterReducer}),
+    StoreDevtoolsModule.instrument({
+      logOnly: environment.production, // Restrict extension to log-only mode
+      autoPause: true, // Pauses recording actions and state changes when the extension window is not open
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]
