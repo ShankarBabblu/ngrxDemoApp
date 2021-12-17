@@ -1,0 +1,18 @@
+<div class="row">
+    <div class="col-md-6 offset-md-3">
+        <h3>Login</h3>
+        <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+            <div class="mb-3">
+                <label for="">Email</label>
+                <input type="text" class="form-control form-group" formControlName="email">
+            </div>
+            <div>{{showErrorMessage('email')}}</div>
+            <div class="mb-3">
+                <label for="">password</label>
+                <input type="password" class="form-control form-group" formControlName="password">
+            </div>
+            <div>{{showErrorMessage('password')}}</div>
+            <div class="mb-3"><button type="submit" class="btn btn-primary"> Login </button></div>
+        </form>
+    </div>
+</div>
